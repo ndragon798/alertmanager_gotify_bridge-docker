@@ -1,5 +1,11 @@
 FROM golang:alpine
 RUN apk --no-cache add git
 RUN go get github.com/DRuggeri/alertmanager_gotify_bridge
-
-ENTRYPOINT  alertmanager_gotify_bridge --bind_address=0.0.0.0 --port=8080 --debug --gotify_endpoint=$ENDPOINT
+ENV PORT=8080
+ENV BIND_ADDRESS=0.0.0.0
+ENV WEBHOOOK_PATH="/gotify_webhook"
+ENV TIMEOUT=5s
+ENV TITLE_ANNOTATION="description"
+ENV MESSAGE_ANNOTATION="summary"
+ENV DEFAULT_PRIORITY=5
+ENTRYPOINT  alertmanager_gotify_bridge --bind_address=$BIND_ADDRESS --port=$PORT --debug --gotify_endpoint=$ENDPOINT
