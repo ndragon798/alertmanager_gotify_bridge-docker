@@ -2,8 +2,9 @@ name: release-docker
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
