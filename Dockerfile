@@ -1,6 +1,6 @@
 FROM golang:alpine
 RUN apk --no-cache add git
-RUN go get github.com/DRuggeri/alertmanager_gotify_bridge
+RUN go install github.com/DRuggeri/alertmanager_gotify_bridge@latest
 ENV PORT=8080
 ENV BIND_ADDRESS=0.0.0.0
 ENV WEBHOOOK_PATH="/gotify_webhook"
