@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.21.4-alpine3.18
 RUN apk --no-cache add git
 RUN go install github.com/DRuggeri/alertmanager_gotify_bridge@latest
 ENV PORT=8080
